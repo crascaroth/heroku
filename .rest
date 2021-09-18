@@ -1,0 +1,98 @@
+### Signup Medico
+@especialidade=a5600a4a-61fc-4218-910f-109b0c2048d8
+POST http://localhost:3003/user/signup/medic
+Content-Type: application/json
+
+{
+    "login":"Allison@dois.empregos.com",
+    "password":"123456",
+    "fk_especialidade": "a5600a4a-61fc-4218-910f-109b0c2048d8"
+}
+
+### Signup Paciente
+POST http://localhost:3003/user/signup/patient
+Content-Type: application/json
+
+{
+    "login": "carol@porpetinha.com",
+    "password": "123456"
+}
+
+### Signup Especialidades
+POST http://localhost:3003/user/signup/specialty
+Content-Type: application/json
+
+{
+    "specialty": "Cardiologista"
+}
+
+### Create Appointment
+POST http://localhost:3003/appointment/create
+Content-Type: application/json
+
+{
+    "fk_paciente": "42b82872-bb17-4103-bfca-d09e3bb0ae93",
+    "fk_medico": "2ac1bafb-c658-49fb-9147-257a204261e8",
+    "pagamento_total": "10",
+    "data": "2000-01-01",
+    "retorno": "2000-01-30"
+}
+
+### Create Appointment Type
+POST http://localhost:3003/appointment/create/type
+Content-Type: application/json
+
+{
+    "nome": "Consulta",
+    "preco": 400
+}
+
+### Create Appointment Relation
+POST http://localhost:3003/appointment/create/relation
+Content-Type: application/json
+
+{
+    "fk_agendamento": "3333f7f6-e4d8-47d7-b663-e6b5710e43a7",
+    "fk_tipo_de_agendamento": "4b46fd45-aa3e-4324-a261-bbcb58a1a87a"
+}
+
+
+### Create Report
+POST http://localhost:3003/report/create
+Content-Type: application/json
+
+{
+    "fk_medico": "2ac1bafb-c658-49fb-9147-257a204261e8",
+    "fk_paciente": "42b82872-bb17-4103-bfca-d09e3bb0ae93",
+    "data": "2021-05-07",
+    "atualizacao": "2021-05-08",
+    "descricao": "Consulta marcada para amanhã" 
+}
+
+### Create Report Model
+POST http://localhost:3003/report/create/model
+Content-Type: application/json
+
+{
+    "fk_especialidade": "a5600a4a-61fc-4218-910f-109b0c2048d8",
+    "nome": "Cardiologia Seu Zé"
+}
+
+### Create Report Relation
+POST http://localhost:3003/report/create/relation
+Content-Type: application/json
+
+{
+    "fk_modelo":"4fe7ae91-2c73-4fe6-99e2-6abc67ce5509",
+    "fk_laudo": "66423faf-22e6-4622-9d9a-f04602351bd4"
+}
+
+### Login teste Patient
+PUT http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "login": "carol@porpetinha.com",
+    "password": "123456",
+    "userType": "Patient"
+}
